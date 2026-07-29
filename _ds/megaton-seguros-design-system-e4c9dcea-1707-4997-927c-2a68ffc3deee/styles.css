@@ -1,0 +1,8 @@
+@import 'tokens/fonts.css';
+@import 'tokens/colors.css';
+@import 'tokens/typography.css';
+@import 'tokens/spacing.css';
+body{font-family:var(--font-body);color:var(--text-primary);background:var(--surface-page)}
+h1,h2,h3,h4,h5{font-family:var(--font-display);margin:0;color:var(--graphite-600)}
+a{color:var(--brand-primary)}
+a:hover{color:var(--red-600)}

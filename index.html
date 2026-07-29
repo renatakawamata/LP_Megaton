@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/styles.css">
+  <script src="_ds/megaton-seguros-design-system-e4c9dcea-1707-4997-927c-2a68ffc3deee/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body{margin:0;background:var(--surface-page);}
+    a{color:var(--brand-primary);text-decoration:none;}
+    a:hover{color:var(--brand-primary-hover);}
+    ::selection{background:var(--red-100);}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-body, Manrope, sans-serif);color:var(--text-primary);background:var(--surface-page);overflow:hidden;">
+
+  <!-- NAV -->
+  <div style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--border-subtle);">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <img src="assets/logo-megaton.png" alt="Megaton Seguros" style="height:32px;object-fit:contain;">
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="#solucoes" style="font-size:15px;font-weight:500;color:var(--text-primary);">Soluções</a>
+        <a href="#diferenciais" style="font-size:15px;font-weight:500;color:var(--text-primary);">Diferenciais</a>
+        <a href="#sobre" style="font-size:15px;font-weight:500;color:var(--text-primary);">Sobre</a>
+        <a href="#faq" style="font-size:15px;font-weight:500;color:var(--text-primary);">Dúvidas</a>
+      </div>
+      <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Button" variant="whatsapp" size="sm" hint-size="180px,40px">Falar no WhatsApp</x-import>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;padding:80px 32px 96px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;">
+    <div style="position:absolute;top:-40px;right:-120px;width:640px;height:640px;background:linear-gradient(135deg, var(--red-100) 0%, rgba(255,255,255,0) 70%);border-radius:50%;z-index:0;"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;">
+      <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Badge" tone="brand" hint-size="auto,30px">Mais de 20 anos protegendo pessoas e empresas</x-import>
+      <h1 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h1-size);line-height:var(--h1-line);font-weight:var(--h1-weight);margin:0;color:var(--graphite-600);text-wrap:pretty;">
+        Seguro inteligente.<br><span style="color:var(--brand-primary);">Para pessoas inteligentes.</span>
+      </h1>
+      <p style="font-size:var(--text-size);line-height:var(--text-line);color:var(--text-secondary);margin:0;max-width:480px;">
+        Tecnologia, consultoria e atendimento humano para proteger o que realmente importa — para você, sua família e sua empresa.
+      </p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Button" variant="primary" hint-size="170px,52px" onClick="{{ scrollToForm }}">Cotação agora</x-import>
+        <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Button" variant="whatsapp" hint-size="200px,52px">Falar no WhatsApp</x-import>
+      </div>
+    </div>
+    <div style="position:relative;z-index:1;">
+      <image-slot id="hero-photo" shape="rounded" radius="24" placeholder="Foto de pessoa/família em conversa" style="width:100%;height:440px;box-shadow:var(--shadow-lg);"></image-slot>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <div id="diferenciais" style="max-width:var(--container-max);margin:0 auto;padding:32px 32px 96px;">
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:48px;max-width:640px;">
+      <h2 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h2-size);line-height:var(--h2-line);font-weight:var(--h2-weight);margin:0;color:var(--graphite-600);">Inteligência que protege o que importa.</h2>
+      <p style="font-size:var(--text-size);color:var(--text-secondary);margin:0;">A Megaton não vende seguros. Vende tranquilidade através de inteligência.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <sc-for list="{{ diferenciais }}" as="item" hint-placeholder-count="4">
+        <div style="background:var(--surface-card);border-radius:var(--radius-card);padding:var(--space-8);box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:16px;">
+          <div style="width:48px;height:48px;border-radius:var(--radius-default);background:var(--red-50);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);" dangerouslySetInnerHTML="{{ item.iconHtml }}"></div>
+          <div style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-weight:700;font-size:var(--h5-size);color:var(--graphite-600);">{{ item.title }}</div>
+          <div style="font-size:var(--text-sm-size);line-height:var(--text-sm-line);color:var(--text-secondary);">{{ item.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <div id="solucoes" style="background:var(--surface-muted);padding:96px 0;">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:0 32px;">
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:48px;max-width:640px;">
+        <h2 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h2-size);line-height:var(--h2-line);font-weight:var(--h2-weight);margin:0;color:var(--graphite-600);">Soluções para você e sua empresa</h2>
+        <p style="font-size:var(--text-size);color:var(--text-secondary);margin:0;">Cobertura pensada para cada momento — escolhida com a orientação de quem entende do assunto.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <sc-for list="{{ produtos }}" as="item" hint-placeholder-count="6">
+          <div style="background:var(--surface-card);border-radius:var(--radius-card);padding:var(--space-8);box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:16px;">
+            <div style="width:48px;height:48px;border-radius:var(--radius-default);background:var(--blue-50);display:flex;align-items:center;justify-content:center;color:var(--brand-tech);" dangerouslySetInnerHTML="{{ item.iconHtml }}"></div>
+            <div style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-weight:700;font-size:var(--h5-size);color:var(--graphite-600);">{{ item.title }}</div>
+            <div style="font-size:var(--text-sm-size);line-height:var(--text-sm-line);color:var(--text-secondary);">{{ item.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <div id="sobre" style="max-width:var(--container-max);margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;">
+    <image-slot id="sobre-photo" shape="rounded" radius="24" placeholder="Foto da equipe / sócio médico" style="width:100%;height:420px;box-shadow:var(--shadow-lg);"></image-slot>
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Badge" tone="info" hint-size="auto,30px">Consultoria com respaldo médico</x-import>
+      <h2 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h3-size);line-height:var(--h3-line);font-weight:var(--h3-weight);margin:0;color:var(--graphite-600);">Mais de 20 anos entendendo profundamente o assunto.</h2>
+      <p style="font-size:var(--text-size);line-height:var(--text-line);color:var(--text-secondary);margin:0;">Temos um médico entre os sócios da Megaton, o que guia cada decisão técnica e regulatória — da escolha da operadora ao desenho da apólice. É esse conhecimento que usamos para proteger pessoas.</p>
+      <div style="display:flex;gap:32px;">
+        <div>
+          <div style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:32px;font-weight:800;color:var(--brand-primary);">20+</div>
+          <div style="font-size:var(--text-sm-size);color:var(--text-secondary);">anos de mercado</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:32px;font-weight:800;color:var(--brand-primary);">4</div>
+          <div style="font-size:var(--text-sm-size);color:var(--text-secondary);">linhas de negócio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTO -->
+  <div style="background:var(--surface-muted);padding:96px 0;">
+    <div style="max-width:800px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;">
+      <div style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:28px;line-height:1.5;font-weight:600;color:var(--graphite-600);">
+        "A Megaton entendeu exatamente o que a nossa empresa precisava. Consultoria de verdade, sem jargão e sem enrolação."
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Avatar" initials="RM" hint-size="44px,44px"></x-import>
+        <div style="text-align:left;">
+          <div style="font-weight:700;color:var(--graphite-600);font-size:15px;">Renata Marques</div>
+          <div style="font-size:14px;color:var(--text-muted);">Diretora administrativa, cliente Megaton</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div id="cotacao" style="max-width:900px;margin:0 auto;padding:96px 32px;">
+    <div style="background:var(--surface-card);border-radius:var(--radius-card);box-shadow:var(--shadow-lg);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+      <div style="display:flex;flex-direction:column;gap:16px;justify-content:center;">
+        <h2 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h3-size);line-height:var(--h3-line);font-weight:var(--h3-weight);margin:0;color:var(--graphite-600);">Peça sua cotação.</h2>
+        <p style="font-size:var(--text-size);line-height:var(--text-line);color:var(--text-secondary);margin:0;">Preencha os dados e um de nossos consultores retorna com uma proposta sob medida — sem compromisso.</p>
+      </div>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:12px;">
+          <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Alert" tone="success" title="Recebido!" description="Em breve um consultor entra em contato pelo telefone informado." hint-size="auto,auto"></x-import>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Input" placeholder="Seu nome" value="{{ formName }}" onChange="{{ onNameChange }}" hint-size="100%,52px"></x-import>
+          <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Input" placeholder="Telefone com DDD" value="{{ formPhone }}" onChange="{{ onPhoneChange }}" hint-size="100%,52px"></x-import>
+          <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Select" placeholder="Tipo de seguro" options="{{ seguroOptions }}" value="{{ formTipo }}" onChange="{{ onTipoChange }}" hint-size="100%,52px"></x-import>
+          <x-import component-from-global-scope="MegatonSegurosDesignSystem_e4c9dc.Button" variant="primary" onClick="{{ onSubmit }}" hint-size="100%,52px">Solicitar cotação</x-import>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" style="max-width:800px;margin:0 auto;padding:32px 32px 96px;">
+    <h2 style="font-family:var(--font-display, 'Plus Jakarta Sans', sans-serif);font-size:var(--h3-size);line-height:var(--h3-line);font-weight:var(--h3-weight);margin:0 0 32px;color:var(--graphite-600);">Dúvidas frequentes</h2>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="3">
+        <details style="background:var(--surface-card);border-radius:var(--radius-default);padding:20px 24px;box-shadow:var(--shadow-sm);">
+          <summary style="font-weight:700;color:var(--graphite-600);cursor:pointer;font-size:16px;">{{ item.q }}</summary>
+          <div style="margin-top:12px;color:var(--text-secondary);font-size:var(--text-sm-size);line-height:var(--text-sm-line);">{{ item.a }}</div>
+        </details>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:var(--graphite-800);padding:64px 0 32px;">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:48px;">
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:#fff;border-radius:12px;padding:8px 14px;display:inline-flex;width:fit-content;"><img src="assets/logo-megaton.png" alt="Megaton Seguros" style="height:24px;object-fit:contain;display:block;"></div>
+          <p style="color:var(--graphite-300);font-size:14px;line-height:1.6;max-width:260px;margin:0;">Tecnologia, consultoria e atendimento humano para oferecer as melhores soluções em seguros.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:4px;">Seguros</div>
+          <a href="#solucoes" style="color:var(--graphite-300);font-size:14px;">Saúde</a>
+          <a href="#solucoes" style="color:var(--graphite-300);font-size:14px;">Vida</a>
+          <a href="#solucoes" style="color:var(--graphite-300);font-size:14px;">Auto</a>
+          <a href="#solucoes" style="color:var(--graphite-300);font-size:14px;">Residencial</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:4px;">Empresa</div>
+          <a href="#sobre" style="color:var(--graphite-300);font-size:14px;">Sobre</a>
+          <a href="#diferenciais" style="color:var(--graphite-300);font-size:14px;">Diferenciais</a>
+          <a href="#cotacao" style="color:var(--graphite-300);font-size:14px;">Cotação</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:4px;">Contato</div>
+          <span style="color:var(--graphite-300);font-size:14px;">contato@megatonseguros.com.br</span>
+          <span style="color:var(--graphite-300);font-size:14px;">(11) 4000-0000</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--graphite-700);padding-top:24px;color:var(--graphite-400);font-size:13px;">© 2026 Megaton Seguros. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ICONS = {
+  zap: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+  users: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+  heart: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>',
+  bot: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>',
+  stethoscope: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2.3"></path><path d="M8 2v6a4 4 0 0 0 8 0V2"></path><path d="M16 8a5 5 0 0 1-10 0V4"></path><path d="M16 14v2a6 6 0 0 1-12 0v-2"></path><circle cx="19" cy="15" r="2"></circle></svg>',
+  smile: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>',
+  shield: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"></path></svg>',
+  home: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"></path><path d="M9 22V12h6v10"></path><path d="M5 10v11h14V10"></path></svg>',
+  car: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0M5 17a2 2 0 1 0 4 0M19 17a2 2 0 1 1-4 0M19 17a2 2 0 1 0 4 0"></path><path d="M3 17V9l2-5h14l2 5v8"></path></svg>',
+  briefcase: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
+};
+const html = (s) => ({ __html: s });
+
+class Component extends DCLogic {
+  state = {
+    submitted: false,
+    formName: '',
+    formPhone: '',
+    formTipo: '',
+  };
+
+  renderVals() {
+    return {
+      scrollToForm: () => document.getElementById('cotacao')?.scrollIntoView({ behavior: 'smooth' }),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      formName: this.state.formName,
+      formPhone: this.state.formPhone,
+      formTipo: this.state.formTipo,
+      onNameChange: (e) => this.setState({ formName: e.target.value }),
+      onPhoneChange: (e) => this.setState({ formPhone: e.target.value }),
+      onTipoChange: (e) => this.setState({ formTipo: e.target.value }),
+      onSubmit: () => this.setState({ submitted: true }),
+      seguroOptions: ['Saúde', 'Odontológico', 'Vida', 'Residencial', 'Auto', 'Empresarial / RC Médico'],
+      diferenciais: [
+        { title: 'Tecnologia', desc: 'Plataformas e automações que tornam a gestão da sua apólice simples e rápida.', iconHtml: html(ICONS.zap) },
+        { title: 'Consultoria', desc: 'Orientação técnica de especialistas, com um médico entre os sócios guiando as decisões.', iconHtml: html(ICONS.users) },
+        { title: 'Atendimento humano', desc: 'Um consultor de verdade, sempre disponível, sem robôs de atendimento.', iconHtml: html(ICONS.heart) },
+        { title: 'Inteligência artificial', desc: 'IA aplicada para encontrar a cobertura certa, no momento certo, pelo preço certo.', iconHtml: html(ICONS.bot) },
+      ],
+      produtos: [
+        { title: 'Saúde', desc: 'Planos de saúde individuais, familiares e empresariais das melhores operadoras.', iconHtml: html(ICONS.stethoscope) },
+        { title: 'Odontológico', desc: 'Cobertura odontológica completa, com ou sem carência, para você e sua família.', iconHtml: html(ICONS.smile) },
+        { title: 'Vida', desc: 'Proteção financeira para quem você ama, com coberturas sob medida.', iconHtml: html(ICONS.shield) },
+        { title: 'Residencial', desc: 'Seu lar protegido contra incêndio, roubo e imprevistos do dia a dia.', iconHtml: html(ICONS.home) },
+        { title: 'Auto', desc: 'Cobertura completa para o seu veículo, com assistência 24h.', iconHtml: html(ICONS.car) },
+        { title: 'Empresarial & RC Médico', desc: 'Soluções corporativas e responsabilidade civil para profissionais da saúde.', iconHtml: html(ICONS.briefcase) },
+      ],
+      faqs: [
+        { q: 'Quanto tempo leva para receber uma cotação?', a: 'Normalmente respondemos em até 24 horas úteis, com uma proposta comparativa entre as melhores opções do mercado.' },
+        { q: 'Vocês atendem pessoa física e empresas?', a: 'Sim. Atendemos pessoas físicas, famílias, pequenas e médias empresas e grandes corporações.' },
+        { q: 'Por que ter um médico entre os sócios faz diferença?', a: 'Ele orienta tecnicamente escolhas de cobertura, rede credenciada e carências — decisões que impactam diretamente sua proteção.' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
